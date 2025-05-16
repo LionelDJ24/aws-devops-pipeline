@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Simple DevOps pipeline - EC2 instance creation
+
+Resources:
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-02b7d5b1e55a7b5f1 # Amazon Linux 2023 (x86)
+      KeyName: LionelKeyPair
+      SubnetId: subnet-000b7f5c80d838001
+      SecurityGroupIds:
+        - sg-008b17f97167e7838
+      Tags:
+        - Key: Name
+          Value: MyDevOpsInstance
+
